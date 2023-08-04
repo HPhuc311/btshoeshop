@@ -14,13 +14,18 @@ const BTshoeshop = () => {
   }
 
   return (
-    <div className='container'>
-        <h1>BTShoeShop</h1>
+    <div className='container py-5'>
+        <div className="d-flex justify-content-between">
+            <h1 className='text-white'>BTShoeShop</h1>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalCart" aria-controls="offcanvasWithBothOptions">Cart</button>
+        </div>
+
+
         <ProductList kindShoe={kindShoe} handleDetails={handleDetails} />
 
 
         {/* Modal - Details */}
-        <ProductDetails productDetail={productDetail} />
+        <ProductDetails productDetail={productDetail}/>
     </div>
   )
 }
