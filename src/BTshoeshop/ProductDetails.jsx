@@ -2,7 +2,6 @@ import React from 'react'
 
 const ProductDetails = (props) => {
   const {productDetail} = props
-  console.log('productDetail', productDetail)
   return (
   <div className="modal fade" id="modalDetail" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog modal-xl">
@@ -17,8 +16,10 @@ const ProductDetails = (props) => {
                   <img className='img-fluid' src={productDetail.image} alt="..." />
                 </div>
                 <div className="col-8">
-                  <p className='fw-bold fs-3'>{productDetail.name}</p>
-                  <p>{productDetail.description}</p>
+                    <p className="fw-bold fs-3">{productDetail.name}</p>
+                    <p className="mt-3">{productDetail.description}</p>
+                    <p className="mt-3 fw-bold">Giá: {productDetail.price}$</p>
+                    <p className="mt-3">Số lượng: {productDetail.quantity}</p>
                 </div>
               </div>
           </div>

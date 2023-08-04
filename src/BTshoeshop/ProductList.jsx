@@ -3,12 +3,12 @@ import ProductItem from './ProductItem'
 
 
 const ProductList = (props) => {
-    const {kindShoe} = props 
+    const {kindShoe,handleDetails} = props 
   return (
     <div className='row'>
         {
             kindShoe.map((product) => (
-                <ProductItem key={product.id} product={product}/>
+                <ProductItem key={product.id} product={product} handleDetails={handleDetails} />
             ))
         }
     </div>
