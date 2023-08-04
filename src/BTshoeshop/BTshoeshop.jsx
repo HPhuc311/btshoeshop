@@ -60,7 +60,7 @@ const BTshoeshop = () => {
     <div className='container py-5'>
         <div className="d-flex justify-content-between">
             <h1 className='text-white'>BTShoeShop</h1>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-cart-shopping"></i> Cart </button>
         </div>
 
 

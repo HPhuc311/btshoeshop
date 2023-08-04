@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProductItem = (props) => {
-    const {product,handleDetails,handleCarts} = props
+    const {product,handleDetails,handleCarts,} = props
   return (
     <div key={product.id} className='col-3 mt-3'>
     <div className="card">
