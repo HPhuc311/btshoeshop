@@ -4,4 +4,9 @@
 
 p{
     text-align: start;
+    margin: 0;
+}
+
+h3{
+    text-align: start;
 }

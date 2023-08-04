@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProductItem = (props) => {
-    const {product,handleDetails} = props
+    const {product,handleDetails,handleCarts} = props
   return (
     <div key={product.id} className='col-3 mt-3'>
     <div className="card">
@@ -10,7 +10,9 @@ const ProductItem = (props) => {
             <p className='fw-bold'>{product.name}</p>
             <p className='mt-3'>{product.price}$</p>
             <div className="mt-3 d-flex justify-content-between">
-                <button className='btn btn-success'>Add To Cart</button>
+                <button className='btn btn-success' onClick={() => {
+                                handleCarts(product)
+                            }}>Add To Cart</button>
                 <button className='btn btn-info text-white' data-bs-toggle="modal" data-bs-target="#modalDetail" onClick={() => {
                                 handleDetails(product)
                             }}>Detail</button>

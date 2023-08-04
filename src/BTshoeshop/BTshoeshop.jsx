@@ -3,6 +3,7 @@ import './style/style.css'
 import kindShoe from './data.json'
 import ProductList from './ProductList'
 import ProductDetails from './ProductDetails'
+import Cart from './Cart'
 
 
 const BTshoeshop = () => {
@@ -13,19 +14,65 @@ const BTshoeshop = () => {
     setProductDetail(product)
   }
 
+  // ==========cart=============
+  const [carts, setCarts] = useState([]) // tham chiếu #123
+    console.log('carts: ', carts)
+
+  const handleCarts = (product) => {
+    console.log('product: ', product)
+      // setCarts(data)
+      setCarts((currentState) => {
+          //#123
+          //Kiểm tra trong carts đã tồn tại sản phẩm hay chưa
+          const index = currentState.findIndex((item) => item.id === product.id)
+
+          if (index !== -1) {
+              //SP đã tồn tại trong carts => tăng số lượng của sp đó lên
+              currentState[index].cartQuantity += 1
+          } else {
+              currentState.push({ ...product, cartQuantity: 1 })
+          }
+          return [...currentState]
+      })
+  }
+
+  const handleQuantity = (id, quantity) => {
+    // quantiy: +1 => button +
+    // quantity: -1:  => button -
+    setCarts((currentState) => {
+        // Tìm kiếm sản phẩm đang muốn tăng giảm số lượng
+        const index = currentState.findIndex((item) => item.id === id)
+
+        currentState[index].cartQuantity = currentState[index].cartQuantity + quantity || 1
+
+        return [...currentState]
+    })
+}
+
+  const handleDelete = (id) => {
+  setCarts((currentState) => {
+      return currentState.filter((item) => item.id !== id)
+  })
+}
+
+
   return (
     <div className='container py-5'>
         <div className="d-flex justify-content-between">
             <h1 className='text-white'>BTShoeShop</h1>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#modalCart" aria-controls="offcanvasWithBothOptions">Cart</button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
         </div>
 
 
-        <ProductList kindShoe={kindShoe} handleDetails={handleDetails} />
+        <ProductList kindShoe={kindShoe} handleDetails={handleDetails} handleCarts={handleCarts} />
 
 
         {/* Modal - Details */}
         <ProductDetails productDetail={productDetail}/>
+
+        {/* Modal - Cart */}
+
+        <Cart carts={carts} handleQuantity={handleQuantity} handleDelete={handleDelete} ></Cart>
     </div>
   )
 }
