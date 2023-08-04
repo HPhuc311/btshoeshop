@@ -20,7 +20,7 @@ const Cart = ({carts,handleQuantity,handleDelete}) => {
                                         <div className="col-8">
                                           <p>{index + 1} {cart.name}</p>
                                           <p>{cart.cartQuantity * cart.price}$</p>
-                                          <div className="d-flex align-items-center" >
+                                          <div className="d-flex align-items-center">
                                             <button className='btn btn-outline-success d-flex justify-content-center align-items-center' style={{width: 25, height: 25}} onClick={() => {handleQuantity(cart.id,1)}}>+</button>
                                             <span className='' style={{width: 25, height: 25}}>{cart.cartQuantity}</span>
                                             <button className='btn btn-outline-success d-flex justify-content-center align-items-center' style={{width: 25, height: 25}} onClick={() => {handleQuantity(cart.id,-1)}}>-</button>
