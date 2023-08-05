@@ -22,8 +22,8 @@ const BTshoeshop = () => {
     setCount(count + 1);
   };
 
-  const handleDescrement = (product) => {
-    setCount(count - product);
+  const handleDescrement = (porduct = 1) => {
+    setCount(count - porduct);
   }
 
   // ==========cart=============
@@ -58,7 +58,6 @@ const BTshoeshop = () => {
         const index = currentState.findIndex((item) => item.id === id)
 
         currentState[index].cartQuantity = currentState[index].cartQuantity + quantity || 1
-
         return [...currentState]
     })
 }
@@ -86,7 +85,7 @@ const BTshoeshop = () => {
 
         {/* Modal - Cart */}
 
-        <Cart carts={carts} handleQuantity={handleQuantity} handleDelete={handleDelete} handleDescrement={handleDescrement} ></Cart>
+        <Cart carts={carts} handleQuantity={handleQuantity} handleDelete={handleDelete} handleDescrement={handleDescrement} handleIncrement={handleIncrement}></Cart>
     </div>
   )
 }
