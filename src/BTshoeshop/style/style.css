@@ -11,3 +11,15 @@ h3{
     text-align: start;
 }
 
+.cart-number{
+    top: 5%;
+    transform: translate(-30%,-50%);
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50px;
+    background-color: white;
+    color: black;
+}

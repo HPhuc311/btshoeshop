@@ -14,6 +14,18 @@ const BTshoeshop = () => {
     setProductDetail(product)
   }
 
+  // ==========count product======
+  const [count, setCount] = useState(0)
+
+  const handleIncrement = () => {
+    // Tăng giá trị và cập nhật state
+    setCount(count + 1);
+  };
+
+  const handleDescrement = (product) => {
+    setCount(count - product);
+  }
+
   // ==========cart=============
   const [carts, setCarts] = useState([]) // tham chiếu #123
     console.log('carts: ', carts)
@@ -29,8 +41,10 @@ const BTshoeshop = () => {
           if (index !== -1) {
               //SP đã tồn tại trong carts => tăng số lượng của sp đó lên
               currentState[index].cartQuantity += 1
+              handleIncrement()
           } else {
               currentState.push({ ...product, cartQuantity: 1 })
+              handleIncrement()
           }
           return [...currentState]
       })
@@ -58,9 +72,9 @@ const BTshoeshop = () => {
 
   return (
     <div className='container py-5'>
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between positive-relative">
             <h1 className='text-white'>BTShoeShop</h1>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-cart-shopping"></i> Cart </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-cart-shopping"></i> Cart  <span className='cart-number position-absolute'>{count}</span> </button>
         </div>
 
 
@@ -72,7 +86,7 @@ const BTshoeshop = () => {
 
         {/* Modal - Cart */}
 
-        <Cart carts={carts} handleQuantity={handleQuantity} handleDelete={handleDelete} ></Cart>
+        <Cart carts={carts} handleQuantity={handleQuantity} handleDelete={handleDelete} handleDescrement={handleDescrement} ></Cart>
     </div>
   )
 }

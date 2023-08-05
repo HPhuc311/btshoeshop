@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cart = ({carts,handleQuantity,handleDelete}) => {
+const Cart = ({carts,handleQuantity,handleDelete, handleDescrement}) => {
   return (
     <div>
      <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex={-1} id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -27,6 +27,7 @@ const Cart = ({carts,handleQuantity,handleDelete}) => {
                                           </div>
                                           <div className="">
                                             <p style={{cursor: 'pointer'}} onClick={() => {
+                                              handleDescrement(cart.cartQuantity)
                                               handleDelete(cart.id)
                                             }}><i class="fa-solid fa-trash"></i></p>
                                           </div>
